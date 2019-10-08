@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function NavBar() {
+function NavBar(props) {
     return (
         <nav class="navbar navbar-light bg-light">
             <ul class="nav">
@@ -18,7 +18,7 @@ function NavBar() {
 
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    Score:  | Top Score:
+                    Score: {props.score} | Top Score:
                 </li>
             </ul>
         </nav>
