@@ -1,0 +1,10 @@
+.jumbotron {
+    background-image: url("https://ewedit.files.wordpress.com/2019/08/gettyimages-143479959.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h1, p {
+    color: white;
+    font-family: 'gabriel_weiss_friends_fontRg';
+}
