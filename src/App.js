@@ -18,11 +18,12 @@ class App extends Component {
     // console.log(name);
     this.friendShuffle()
     // console.log("card clicked!")
-    this.checkFriend(name, this.updateTopScore);
+    this.checkFriend(name);
+    this.updateTopScore();
   }
 
   friendShuffle = () => {
-    this.setState(this.state.friends = this.shuffleArray(this.state.friends))
+    this.setState(this.shuffleArray(this.state.friends))
   }
 
   // Fisher-Yates Shuffling Algorithm
@@ -39,25 +40,30 @@ class App extends Component {
 
   checkFriend = (name) => {
     const newState = {...this.state};
-    console.log(newState);
+    // console.log(newState);
     if (newState.friendsClicked.includes(name)) {
-      console.log("this friend was already picked!")
+      // console.log("this friend was already picked!")
       newState.friendsClicked = []
-      this.setState(this.state = newState)
+      this.setState(newState)
     } else {
       newState.friendsClicked.push(name)
-      console.log(this.state.friendsClicked)
-      this.setState(this.state = newState)
+      // console.log(this.state.friendsClicked)
+      this.setState(newState)
       // console.log(newState)
     }
+    return(newState)
   }
 
-  updateTopScore = (newState) => {
+  updateTopScore = () => {
+    const newState = {...this.state};
+    console.log(newState.friendsClicked.length)
     if (newState.friendsClicked.length > newState.topScore) {
       newState.topScore++
-      this.setState(this.state = newState)
+      this.setState(newState)
       console.log(this.state.topScore)
+      console.log(newState)
     }
+    return(newState)
   }
   
 
@@ -65,7 +71,8 @@ class App extends Component {
     return (
       <div>
       <NavBar 
-      score={this.state.friendsClicked.length} />
+      score={this.state.friendsClicked.length}
+      topo = {this.state.topScore} />
       <JumboTron />
       <Wrapper>
         {this.state.friends.map(friend => (

@@ -18,7 +18,7 @@ function NavBar(props) {
 
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    Score: {props.score} | Top Score:
+                    Score: {props.score} | Top Score: {props.topo}
                 </li>
             </ul>
         </nav>
